@@ -1,0 +1,59 @@
+.
+
+├── wp-admin
+├── wp-includes
+└── wp-content
+    ├── index.php
+    ├── plugins
+    │   ├── index.php
+    │   └── theme-creator-for-bootstrap
+    │       ├── admin
+    │       │   ├── admin-page.php
+    │       │   ├── css
+    │       │   │   └── style.css
+    │       │   └── layouts
+    │       │       ├── TC4B_functions.php
+    │       │       ├── TC4B_generate_layout1.php
+    │       │       ├── TC4B_generate_layout2.php
+    │       │       ├── TC4B_generate_layout3.php
+    │       │       ├── TC4B_generate_layout4.php
+    │       │       ├── TC4B_generate_layout5.php
+    │       │       └── TC4B_generate_layout6.php
+    │       ├── bootstrap
+    │       │   ├── css  
+    │       │   └── js
+    │       │       
+│   │       ├── images
+│   │       │   
+│   │       ├── LICENCE.txt
+│   │       ├── README.txt
+│   │       ├── theme-creator-for-bootstrap.php
+│   │       └── uninstall.php
+│   └── themes
+│       ├── Bootstrap_Theme
+│       │   ├── archive.php
+│       │   ├── css
+│       │   │   ├── bootstrap-grid.min.css
+│       │   │   ├── bootstrap-grid.min.css.map
+│       │   │   ├── bootstrap.min.css
+│       │   │   ├── bootstrap.min.css.map
+│       │   │   ├── bootstrap-reboot.min.css
+│       │   │   └── bootstrap-reboot.min.css.map
+│       │   ├── customizer.php
+│       │   ├── footer.php
+│       │   ├── front-page.php
+│       │   ├── functions.php
+│       │   ├── header.php
+│       │   ├── index.php
+│       │   ├── js
+│       │   │   ├── bootstrap.bundle.min.js
+│       │   │   ├── bootstrap.bundle.min.js.map
+│       │   │   ├── bootstrap.min.js
+│       │   │   ├── bootstrap.min.js.map
+│       │   │   ├── customizer.js
+│       │   │   └── scripts.js
+│       │   ├── page.php
+│       │   ├── screenshot.png
+│       │   ├── single.php
+│       │   └── style.css
+│       └── index.php
