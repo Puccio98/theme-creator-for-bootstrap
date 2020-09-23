@@ -15,10 +15,9 @@ class TC4B_Admin_Page{
     private static $instance = null;
 
 	public static function get_instance() {
-		if (self::$instance == null) {
+		if (self::$instance == null) 
 			self::$instance = new self;
-		}
-
+		
 		return self::$instance;
 	}
     
@@ -30,26 +29,26 @@ class TC4B_Admin_Page{
     
     private function __construct() {
     	add_action("admin_init", [$this,"register_mysettings"]);
-		  add_action("admin_enqueue_scripts", [$this, "enqueue_scripts"]);
-      add_action("admin_menu", [$this, "create_menu"]);
+		add_action("admin_enqueue_scripts", [$this, "enqueue_scripts"]);
+      	add_action("admin_menu", [$this, "create_menu"]);
 	}
     
     public function register_mysettings(){
     	if (!isset($_POST["layout_option"])) {
-        $_POST["layout_option"] = self::DEFAULT_LAYOUT_OPTION;
-      }
+        	$_POST["layout_option"] = self::DEFAULT_LAYOUT_OPTION;
+      	}
      
-      if (!isset($_POST["page_option"])) {
-        $_POST["page_option"] = self::DEFAULT_PAGE_OPTION;
-      }
-      
-      if (!isset($_POST["theme_name"])) {
-        $_POST["theme_name"] = self::DEFAULT_THEME_NAME;
-      }
+		if (!isset($_POST["page_option"])) {
+			$_POST["page_option"] = self::DEFAULT_PAGE_OPTION;
+	  	}
+
+	  	if (!isset($_POST["theme_name"])) {
+			$_POST["theme_name"] = self::DEFAULT_THEME_NAME;
+	  	}
     }
     
     public function enqueue_scripts() {
-		  wp_enqueue_style("admin-page-style", TC4B_URL."admin/css/style.css");
+		wp_enqueue_style("admin-page-style", TC4B_URL."admin/css/style.css");
 	}
     
     public function get_valid_dir($dir){ 
@@ -67,87 +66,86 @@ class TC4B_Admin_Page{
     private function manage_settings(){
 
       //All Sanitizations
-      $page_option = sanitize_text_field($_POST["page_option"]);
-      $layout_option = sanitize_text_field($_POST["layout_option"]);
-      $name = sanitize_text_field($_POST["theme_name"]);
-      if(empty($name))
-          $name = self::DEFAULT_THEME_NAME;    
-      $tmp = str_replace(' ', '_', $name);
-      $dir = sanitize_file_name($tmp);
-      $dir = $this->get_valid_dir($dir);
+		$page_option = sanitize_text_field($_POST["page_option"]);
+		$layout_option = sanitize_text_field($_POST["layout_option"]);
+		$name = sanitize_text_field($_POST["theme_name"]);
+		if(empty($name))
+			$name = self::DEFAULT_THEME_NAME;    
+		$tmp = str_replace(' ', '_', $name);
+		$dir = sanitize_file_name($tmp);
+		$dir = $this->get_valid_dir($dir);
 
       //Validation of inputs and call of each theme generator
-    	if($page_option == 'page1' or $page_option == 'page2' or $page_option == 'page3'){
+		if($page_option == 'page1' or $page_option == 'page2' or $page_option == 'page3'){
     	
     		if($layout_option == 'layout1'){
-          TC4B_generate_layout1( $name , $dir, $page_option);
-?>
-          <div class='updated notice'>
+          		TC4B_generate_layout1( $name , $dir, $page_option);
+				?>
+          		<div class='updated notice'>
     			<p>The Bootstrap Theme: <b><?php echo esc_attr($name);?></b> has been created successfully.<br> It uses 3 Columns layout.</p>
-				  </div>
-<?php
-        }
+				</div>
+				<?php
+        	}
 
-        else if($layout_option == 'layout2'){
-          TC4B_generate_layout2( $name , $dir, $page_option);
-?>
-          <div class='updated notice'>
-          <p>The Bootstrap Theme: <b><?php echo esc_attr($name);?></b> has been created successfully.<br> It uses 2 Columns layout.</p>
-          </div>
-<?php
-        }
+			else if($layout_option == 'layout2'){
+				TC4B_generate_layout2( $name , $dir, $page_option);
+				?>
+				<div class='updated notice'>
+				<p>The Bootstrap Theme: <b><?php echo esc_attr($name);?></b> has been created successfully.<br> It uses 2 Columns layout.</p>
+				</div>
+				<?php
+			}
 
-        else if($layout_option == 'layout3'){
-          TC4B_generate_layout3( $name ,$dir , $page_option );
-?>
-          <div class='updated notice'>
-          <p>The Bootstrap Theme: <b><?php echo esc_attr($name);?></b> has been created successfully.<br> It uses 2:1 layout.</p>
-          </div>
-<?php          
-        }
+			else if($layout_option == 'layout3'){
+				TC4B_generate_layout3( $name ,$dir , $page_option );
+				?>
+				<div class='updated notice'>
+				<p>The Bootstrap Theme: <b><?php echo esc_attr($name);?></b> has been created successfully.<br> It uses 2:1 layout.</p>
+				</div>
+				<?php          
+			}
 
-        else if($layout_option == 'layout4'){
-          TC4B_generate_layout4( $name , $dir , $page_option );
-?>
-          <div class='updated notice'>
-          <p>The Bootstrap Theme: <b><?php echo esc_attr($name);?></b> has been created successfully.<br> It uses Side Widgets layout.</p>
-          </div>
-<?php     
-        }
+			else if($layout_option == 'layout4'){
+				TC4B_generate_layout4( $name , $dir , $page_option );
+				?>
+				<div class='updated notice'>
+				<p>The Bootstrap Theme: <b><?php echo esc_attr($name);?></b> has been created successfully.<br> It uses Side Widgets layout.</p>
+				</div>
+				<?php     
+			}
 
-        else if($layout_option == 'layout5'){
-          TC4B_generate_layout5( $name , $dir , $page_option );
-?>
-          <div class='updated notice'>
-          <p>The Bootstrap Theme: <b><?php echo esc_attr($name);?></b> has been created successfully.<br> It uses 1:2 layout.</p>
-          </div>
-<?php     
-        }
+			else if($layout_option == 'layout5'){
+				TC4B_generate_layout5( $name , $dir , $page_option );
+				?>
+				<div class='updated notice'>
+				<p>The Bootstrap Theme: <b><?php echo esc_attr($name);?></b> has been created successfully.<br> It uses 1:2 layout.</p>
+				</div>
+				<?php     
+			}
 
-        else if($layout_option == 'layout6'){
-          TC4B_generate_layout6( $name , $dir , $page_option );
-?>
-          <div class='updated notice'>
-          <p>The Bootstrap Theme: <b><?php echo esc_attr($name);?></b> has been created successfully.<br> It uses Masonry layout.</p>
-          </div>
-<?php     
-        }
-            
-        else{
-        	add_settings_error(
-              "layout_option",
-              "layout-option-error",
-              "Unvalid choice of Layout");
-        }
+			else if($layout_option == 'layout6'){
+				TC4B_generate_layout6( $name , $dir , $page_option );
+				?>
+				<div class='updated notice'>
+				<p>The Bootstrap Theme: <b><?php echo esc_attr($name);?></b> has been created successfully.<br> It uses Masonry layout.</p>
+				</div>
+				<?php     
+			}
 
+			else{
+				add_settings_error(
+					"layout_option",
+					"layout-option-error",
+					"Unvalid choice of Layout");
+			}
     	}
 
-      else{
-        	add_settings_error(
-              "page_option",
-              "page-option-error",
-              "Unvalid choice of Page");
-        }
+		else{
+			add_settings_error(
+				"page_option",
+				"page-option-error",
+				"Unvalid choice of Page");
+		}
     }
     
 	public function create_menu() {
@@ -156,18 +154,18 @@ class TC4B_Admin_Page{
 			"Bootstrap Themes",
 			"manage_options",
 			"bootstrap-start",
-      [$this, "display_menu_start"],
+			[$this, "display_menu_start"],
 			self::ICON
 		);	
-      
-    add_submenu_page(
+
+		add_submenu_page(
 			"bootstrap-start",
 			"Bootstrap | Getting Started",
 			"Getting Started",
 			"manage_options",
 			"bootstrap-start"
 		);		  
-          
+
 		add_submenu_page(
 			"bootstrap-start",
 			"Bootstrap | Create Theme",
@@ -176,14 +174,13 @@ class TC4B_Admin_Page{
 			"bootstrap-create",
 			[$this, "display_menu_create"]
 		);
-        
 	}
 	
     public function display_menu_create() {
 		if (!current_user_can("manage_options")) {
 			wp_die("You do not have sufficient permissions to access this page.");
 		}
- ?>
+		?>
        	<div class='wrap'>
 
           <?php 
