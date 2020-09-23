@@ -12,8 +12,8 @@ include "layouts/TC4B_generate_layout6.php";
 
 class TC4B_Admin_Page{
 	
-	private static $instance = null;
-	
+    private static $instance = null;
+
 	public static function get_instance() {
 		if (self::$instance == null) {
 			self::$instance = new self;
