@@ -17,7 +17,7 @@ function TC4B_generate_layout2($name,$dir,$page_option){
 
     <?php if ( \$wpb_all_query->have_posts() ) : ?>
     
-    <div class= 'container'>
+    <div class= 'flex-container pl-3 pr-3'>
     	<div class='row'>
         
         <!-- the loop -->
