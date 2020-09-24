@@ -9,7 +9,7 @@ function TC4B_generate_layout2($name,$dir,$page_option){
     $front_page = fopen($basedir. '/themes/'.$dir.'/front-page.php','w');
     
   	fwrite($front_page, "<?php get_header(); ?>
-<div class='container pt-5 pb-5 pl-1 pr-1 pl-md-5 pr-md-5'>
+<div class='flex-container pt-5 pb-5 pl-1 pr-1 pl-md-5 pr-md-5'>
 	<h1 id='blog-title'><?php echo get_bloginfo('name');?></h1>
     <h4 id='blog-description'><?php echo get_bloginfo('description');?></h4>
     
