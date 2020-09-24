@@ -4,16 +4,16 @@ define("theme_dir",dirname(__DIR__, 2));
 
 function TC4B_copydir($source,$destination){
     	
-        if(!is_dir($destination)){
-        	wp_mkdir_p($destination);
-        }
-        $dir_handle = @opendir($source) or die("Unable to open");
-        while ($file = readdir($dir_handle)) 
-        {
-          if($file!="." && $file!=".." && !is_dir("$source/$file"))
+    if(!is_dir($destination)){
+        wp_mkdir_p($destination);
+    }
+    $dir_handle = @opendir($source) or die("Unable to open");
+    while ($file = readdir($dir_handle)) 
+    {
+        if($file!="." && $file!=".." && !is_dir("$source/$file"))
             copy("$source/$file","$destination/$file");
-        }
-        closedir($dir_handle);
+    }
+    closedir($dir_handle);
 }
 
 function TC4B_generate_base($dir){
@@ -22,11 +22,10 @@ function TC4B_generate_base($dir){
 	$ok = wp_mkdir_p($basedir. '/themes/'.$dir.'');
 	if (!$ok){
 		 
-    echo "<div class='notice notice-error is-dismissible'>
-            <p><b>Error</b>: Cannot create theme directory <br>
-          	Check <i>'/wp-content/themes'</i> permissions: make sure it's writable!</p>
-    </div>";
-  
+            echo "<div class='notice notice-error is-dismissible'>
+                <p><b>Error</b>: Cannot create theme directory <br>
+                Check <i>'/wp-content/themes'</i> permissions: make sure it's writable!</p>
+                </div>";
 		die;
 	}
 
@@ -314,9 +313,9 @@ include('customizer.php');
 
 function TC4B_load_stylesheets(){
 	
-	  wp_register_style('bootstrap', get_template_directory_uri().'/css/bootstrap.min.css',array(), false, 'all');
+    wp_register_style('bootstrap', get_template_directory_uri().'/css/bootstrap.min.css',array(), false, 'all');
     wp_enqueue_style('bootstrap');
-    
+
     wp_register_style('style', get_template_directory_uri().'/style.css',array(), false, 'all');
     wp_enqueue_style('style');
      
@@ -327,7 +326,7 @@ function TC4B_load_js(){
     wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), 1, true );
     wp_enqueue_script('bootstrap');
 
-	  wp_register_script('customjs',  get_template_directory_uri().'/js/scripts.js', array( 'jquery' ) , 1, true);
+    wp_register_script('customjs',  get_template_directory_uri().'/js/scripts.js', array( 'jquery' ) , 1, true);
     wp_enqueue_script('customjs');
     
 }
@@ -616,7 +615,7 @@ fwrite($single, "<?php get_header(); ?>
 
 fwrite($archive, "<?php get_header(); ?>
 
-<div class='container pt-5 pb-5'>
+<div class='flex-container pt-5 pb-5'>
 	<h1 style='text-align: center;'><?php single_cat_title(); ?></h1>
     <div class='row'>
       <div class='col-md-2 col-sm-1'>
@@ -784,12 +783,12 @@ if ($page_option == 'page1'){
           <?php get_footer(); ?>  ");      
 }
 
-	  fclose($index);
+    fclose($index);
     fclose($style);
     fclose($header);
     fclose($footer);
     fclose($page);
-	  fclose($single);
+    fclose($single);
     fclose($archive);
     fclose($functions);
     fclose($customizer_php);
