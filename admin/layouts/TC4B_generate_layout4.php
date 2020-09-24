@@ -29,7 +29,7 @@ function TC4B_generate_layout4($name,$dir,$page_option){
 ");
     
   	fwrite($front_page, "<?php get_header(); ?>
-<div class='container pt-5 pb-md-5 pb-2 pl-1 pr-1'>
+<div class='flex-container pt-5 pb-md-5 pb-2 pl-1 pr-1'>
 	<h1 id='blog-title'><?php echo get_bloginfo('name');?></h1>
     <h4 id='blog-description'><?php echo get_bloginfo('description');?></h4>
     
