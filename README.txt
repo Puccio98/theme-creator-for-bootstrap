@@ -39,5 +39,3 @@ Development: Davide Pucci, Christian Pratellesi
 == Upgrade Notice ==
 =1.0=
 * First release.
-=1.0=
-* First release.
