@@ -1,4 +1,5 @@
 === Theme Creator for Bootstrap ===
+Contributors: dadopuccio, Christian Pratellesi, Andrea Ferracani
 Tags: Bootstrap, responsive, WordPress, Themes
 Requires at least: 4.7
 Tested up to: 5.5.1
@@ -7,7 +8,7 @@ Stable tag: trunk
 License: GPL v2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-This plugin allows you to easly create your Bootstrap Theme in Wordpress.
+This plugin allows you to easly create your Bootstrap Theme in WordPress.
 
 == Description ==
 Theme Creator for Bootstrap allows you to create your own WordPress theme created with Bootstrap,
@@ -21,14 +22,22 @@ Using the plugin is very easy, just install and follow the Getting Started instr
 == Prerequisites ==
 Make sure your WordPress folder '/wp-content/themes' is writable, as the Plugin will create a new directory containing all theme files. 
 
+== Frequently Asked Questions ==
+
 == Credits ==
 Corso Progettazione e Produzione Multimediale UniFi
 Idea: Andrea Ferracani
 Development: Davide Pucci, Christian Pratellesi
 
 == Screenshots ==
-1. Theme Example
+1. Creation Interface
 
 == Changelog ==
 = 1.0 =
+* First release.
+
+== Upgrade Notice ==
+=1.0=
+* First release.
+=1.0=
 * First release.
